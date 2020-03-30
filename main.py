@@ -94,3 +94,54 @@ def second_task():
         sorted_ba_values[key] = value
 
     print('Dictionary sorted by values: ', sorted_ba_values)
+
+
+global_var = 100
+
+vars_list = []
+
+
+def multiply_by_global(number):
+    global global_var
+    global vars_list
+    vars_list.append(number * global_var)
+    return vars_list, len(vars_list)
+
+
+def print_args(*args, **kwargs):
+    print('Fun arguments:', args, 'Fun kwargs:', kwargs)
+
+
+def is_divisible_by(num, divisor):
+    return num % divisor == 0
+
+
+def fibonacci(n):
+    if n < 0:
+        print('Incorrect input')
+    elif n == 1:
+        return 0
+    elif n == 2:
+        return 1
+    else:
+        return fibonacci(n - 1) + fibonacci(n - 2)
+
+
+if __name__ == "__main__":
+    second_task()
+
+    print('==========================================')
+    print('=============== Third task ===============')
+    print('==========================================')
+
+    print('Global variable created: ', global_var)
+
+    print('Multiply 5 by global: ', multiply_by_global(5))
+    print('Multiply 7 by global: ', multiply_by_global(7))
+
+    print_args(1, 2, test=True)
+
+    print('1234 is divided by 5:', is_divisible_by(1234, 5))
+    print('444 is divided by 2:', is_divisible_by(444, 2))
+
+    print('Fibonacci for 10 :', fibonacci(10))
